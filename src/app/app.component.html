@@ -1,0 +1,43 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+  <h1 class="example-app-name">Hotels42 - Your Bookings</h1>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #snav>
+    <mat-nav-list>
+      <a mat-list-item (click)="checkForUpdate()">Check for Update</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    
+    <div class="container-fluid">
+    <div class="row" style="align-items: stretch">
+      <div class="card col-sm-6 col-md-4 col-lg-3" style="display: flex; align-items: stretch" *ngFor="let hotel of hotels">
+
+      <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{hotel.name}}</mat-card-title>
+            <mat-card-subtitle>{{hotel.city}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="/assets/{{hotel.id}}.jpg" alt="Photo of {{hotel.name}}">
+          <mat-card-content>
+            <p>{{hotel.name}} in {{hotel.city}}.</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <rating [ngModel]="hotel.stars" (ngModelChange)="rate(hotel, $event)"></rating>
+          </mat-card-actions>
+        </mat-card>
+
+      </div>
+    </div>
+  </div>
+  
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

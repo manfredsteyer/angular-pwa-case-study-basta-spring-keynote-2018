@@ -1,0 +1,13 @@
+  
+  .example-header-image {
+    background-image: url('/assets/bed.png');
+    background-size: cover;
+  }
+  
+  .card {
+     margin-top:30px; 
+  }
+
+  .all {
+    margin:-10px;
+  }
